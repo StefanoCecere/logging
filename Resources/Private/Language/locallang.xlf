@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2012-10-17T17:55:17Z"
+          product-name="ext-logging">
+        <header/>
+        <body>
+            <trans-unit id="pagetitle.events">
+                <source>Events report</source>
+            </trans-unit>
+            <trans-unit id="pagetitle.sessions">
+                <source>Sessions report</source>
+            </trans-unit>
+            <trans-unit id="pagetitle.showevent">
+                <source>Event details</source>
+            </trans-unit>
+            <trans-unit id="pagetitle.showsession">
+                <source>Session details</source>
+            </trans-unit>
+            <trans-unit id="back">
+                <source>Back</source>
+            </trans-unit>
+            <trans-unit id="back.tolist">
+                <source>Back to list</source>
+            </trans-unit>
+            <trans-unit id="list.events">
+                <source>Events list</source>
+            </trans-unit>
+            <trans-unit id="list.sessions">
+                <source>Sessions list</source>
+            </trans-unit>
+            <trans-unit id="results.found">
+                <source>Found</source>
+            </trans-unit>
+            <trans-unit id="year">
+                <source>Year</source>
+            </trans-unit>
+            <trans-unit id="month">
+                <source>Month</source>
+            </trans-unit>
+            <trans-unit id="search.all">
+                <source>All</source>
+            </trans-unit>
+            <trans-unit id="user">
+                <source>User</source>
+            </trans-unit>
+            <trans-unit id="keyword">
+                <source>keyword</source>
+            </trans-unit>
+            <trans-unit id="activity">
+                <source>Activity</source>
+            </trans-unit>
+            <trans-unit id="btn.reset">
+                <source>Reset</source>
+            </trans-unit>
+            <trans-unit id="btn.search">
+                <source>Search</source>
+            </trans-unit>
+            <trans-unit id="date">
+                <source>Date</source>
+            </trans-unit>
+            <trans-unit id="site">
+                <source>Site</source>
+            </trans-unit>
+            <trans-unit id="details">
+                <source>Details</source>
+            </trans-unit>
+            <trans-unit id="btn.export.csv">
+                <source>Export table (CSV)</source>
+            </trans-unit>
+            <trans-unit id="btn.reload">
+                <source>Reload</source>
+            </trans-unit>
+
+            <trans-unit id="action.view">
+                <source>View</source>
+            </trans-unit>
+            <trans-unit id="action.modify">
+                <source>Modify</source>
+            </trans-unit>
+            <trans-unit id="action.search">
+                <source>Search</source>
+            </trans-unit>
+            <trans-unit id="action.download">
+                <source>Download</source>
+            </trans-unit>
+            <trans-unit id="action.export">
+                <source>Export</source>
+            </trans-unit>
+            <trans-unit id="action.login">
+                <source>Login</source>
+            </trans-unit>
+            <trans-unit id="action.logout">
+                <source>Logout</source>
+            </trans-unit>
+
+            <trans-unit id="tablename.page">
+                <source>Page</source>
+            </trans-unit>
+            <trans-unit id="tablename.dam">
+                <source>DAM</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,90 @@
+{namespace v=Tx_Vhs_ViewHelpers}
+
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://typo3.org/ns/fluid"
+     xmlns:v="http://fedext.net/schemas/vhs-master.xsd">
+
+    <f:layout name="Backend/Default"/>
+
+    <f:section name="Main">
+
+        <h4><f:translate key="pagetitle.showevent"/></h4>
+
+        <div class="row">
+            <div class='col-sm-6'>
+                <button class="btn btn-default btn-sm" onCLick="history.back()">
+                    <span class="glyphicon glyphicon-chevron-left"></span> <f:translate key="back"/>
+                </button>
+            </div>
+        </div>
+        <hr/>
+
+        <table class="table table-condensed">
+            <tr>
+                <td class="active"><f:translate key="date"/></td>
+                <td>
+                    <f:format.date format="j-m-Y H:i">{event.crdate}</f:format.date>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="active"><f:translate key="site"/></td>
+                <td>{event.siteId.title}</td>
+
+            </tr>
+            <tr>
+                <td class="active"><f:translate key="user"/></td>
+                <td>
+                    <f:if condition="{event.feUser.username}">
+                        {event.feUser.firstName} {event.feUser.lastName} ({event.feUser.username} - id:{event.feUser.uid})
+                    </f:if>
+                </td>
+
+            </tr>
+            <tr>
+                <td class="active"><f:translate key="action"/></td>
+                <td>
+                    <f:translate key="action.{event.action}"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="active">Note</td>
+                <td>{event.note}</td>
+            </tr>
+            <tr>
+                <td class="active">Table</td>
+                <td>{event.tablename}</td>
+            </tr>
+            <tr>
+                <td class="active">Id</td>
+                <td>{event.recordId}</td>
+            </tr>
+            <tr>
+                <td class="active">IP</td>
+                <td>{event.ipAddress}</td>
+            </tr>
+            <tr>
+                <td class="active">Backend User</td>
+                <td>
+                    <f:if condition="{event.beUser}">{event.beUser}</f:if>
+                </td>
+            </tr>
+            <tr>
+                <td class="active">https_referr</td>
+                <td>
+                    <f:link.external uri="{event.httpReferer}" target="_blank">{event.httpReferer}</f:link.external>
+                </td>
+            </tr>
+            <tr>
+                <td class="active">Params</td>
+                <td>
+                    <f:debug>{event.paramsArray}</f:debug>
+                    <f:comment><!-- <f:format.html>{event.paramsHtml}</f:format.html> --></f:comment>
+                </td>
+
+            </tr>
+
+        </table>
+
+    </f:section>
+</div>

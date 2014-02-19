@@ -1,0 +1,22 @@
+# Loggin module config
+module.tx_logging {
+  view {
+    templateRootPath = EXT:logging/Resources/Private/Templates/
+    partialRootPath = EXT:logging/Resources/Private/Partials/
+    layoutRootPath = EXT:logging/Resources/Private/Layouts/
+  }
+
+  persistence {
+    classes {
+      Tx_Logging_Domain_Model_User.mapping {
+        tableName = fe_users
+      }
+      Tx_Logging_Domain_Model_Page.mapping {
+        tableName = pages
+        columns {
+          title.mapOnProperty = title
+        }
+      }
+    }
+  }
+}

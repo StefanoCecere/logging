@@ -1,0 +1,19 @@
+{namespace v=Tx_Vhs_ViewHelpers}
+{namespace l=Tx_Logging_Viewhelpers}
+
+<f:be.container pageTitle="Logging Reports"
+                enableJumpToUrl="true" enableClickMenu="false" loadPrototype="false"
+                loadScriptaculous="false" loadExtJs="false" loadExtJsTheme="false">
+    <l:css name="bootstrap.min.css" extKey="logging" pathInsideExt="Resources/Public/contrib/bootstrap/css/"/>
+    <l:css name="bootstrap-theme.min.css" extKey="logging" pathInsideExt="Resources/Public/contrib/bootstrap/css/"/>
+
+    <l:js name="jquery-1.9.1.min.js" extKey="logging" pathInsideExt="Resources/Public/contrib/"/>
+    <l:js name="bootstrap.min.js" extKey="logging" pathInsideExt="Resources/Public/contrib/bootstrap/js/"/>
+
+    <div class="container-fluid navbar-typo3-bottom">
+        <div class="row-fluid">
+            <f:render section="Main"/>
+        </div>
+    </div>
+
+</f:be.container>

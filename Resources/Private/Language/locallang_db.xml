@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <description>Labels for database fields and values</description>
+        <type>database</type>
+        <csh_table></csh_table>
+        <labelContext type="array">
+        </labelContext>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+            <label index="tx_logging_session">[logging] User sessions</label>
+            <label index="tx_logging_session.fe_user">Frontend user:</label>
+            <label index="tx_logging_session.site_id">Site:</label>
+            <label index="tx_logging_session.page_id">Login page:</label>
+            <label index="tx_logging_session.ip_address">IP address:</label>
+
+            <label index="tx_logging_event">[logging] Event</label>
+            <label index="tx_logging_event.session_id">Session record:</label>
+            <label index="tx_logging_event.be_user">BE user:</label>
+            <label index="tx_logging_event.fe_user">Frontend user:</label>
+            <label index="tx_logging_event.action">action:</label>
+            <label index="tx_logging_event.tablename">tablename:</label>
+            <label index="tx_logging_event.record_id">record_id:</label>
+            <label index="tx_logging_event.note">Note:</label>
+            <label index="tx_logging_event.http_referer">http_referer:</label>
+            <label index="tx_logging_event.params">params:</label>
+        </languageKey>
+    </data>
+</T3locallang>

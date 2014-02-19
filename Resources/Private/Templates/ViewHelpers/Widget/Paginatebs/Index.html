@@ -1,0 +1,83 @@
+{namespace l=Tx_Logging_ViewHelpers}
+<f:if condition="{configuration.insertAbove}">
+    <f:render section="paginator" arguments="{pagination: pagination,configuration:configuration}"/>
+</f:if>
+
+<f:renderChildren arguments="{contentArguments}"/>
+
+<f:if condition="{configuration.insertBelow}">
+    <f:render section="paginator" arguments="{pagination: pagination,configuration:configuration}"/>
+</f:if>
+
+<f:section name="paginator">
+    <f:if condition="{pagination.numberOfPages} > 1">
+        <ul class="pagination pagination-sm">
+            <f:if condition="{pagination.previousPage}">
+                <f:then>
+                    <li>
+                        <f:if condition="{pagination.previousPage} > 1">
+                            <f:then>
+                                <l:widget.link arguments="{currentPage: pagination.previousPage}" addQueryStringMethod="{configuration.addQueryStringMethod}">
+                                    &laquo;
+                                </l:widget.link>
+                            </f:then>
+                            <f:else>
+                                <l:widget.link arguments="{currentPage: pagination.previousPage}" addQueryStringMethod="{configuration.addQueryStringMethod}">
+                                    &laquo;
+                                </l:widget.link>
+                            </f:else>
+                        </f:if>
+                    </li>
+                </f:then>
+                <f:else>
+                    <li class="disabled"><a href="#">&laquo;</a></li>
+                </f:else>
+            </f:if>
+            <f:if condition="{pagination.displayRangeStart} > 1">
+                <li>
+                    <l:widget.link arguments="{currentPage: 1}" addQueryStringMethod="{configuration.addQueryStringMethod}">
+                        1
+                    </l:widget.link>
+                </li>
+            </f:if>
+            <f:if condition="{pagination.hasLessPages}">
+                <li class="disabled"><a href="#">...</a></li>
+            </f:if>
+            <f:for each="{pagination.pages}" as="page">
+                <f:if condition="{page.isCurrent}">
+                    <f:then>
+                        <li class="active">
+                            <l:widget.link arguments="{currentPage: page.number}" addQueryStringMethod="{configuration.addQueryStringMethod}">
+                                {page.number}
+                            </l:widget.link>
+                        </li>
+                    </f:then>
+                    <f:else>
+                        <li>
+                            <l:widget.link arguments="{currentPage: page.number}" addQueryStringMethod="{configuration.addQueryStringMethod}">
+                                {page.number}
+                            </l:widget.link>
+                        </li>
+                    </f:else>
+                </f:if>
+            </f:for>
+            <f:if condition="{pagination.hasMorePages}">
+                <li class="disabled"><a href="#">...</a></li>
+            </f:if>
+            <f:if condition="{pagination.displayRangeEnd} < {pagination.numberOfPages}">
+                <li class="last">
+                    <l:widget.link arguments="{currentPage: pagination.numberOfPages}" addQueryStringMethod="{configuration.addQueryStringMethod}">
+                        {pagination.numberOfPages}
+                    </l:widget.link>
+                </li>
+            </f:if>
+            <f:if condition="{pagination.nextPage}">
+                <li class="last next">
+                    <l:widget.link arguments="{currentPage: pagination.nextPage}" addQueryStringMethod="{configuration.addQueryStringMethod}">
+                        &raquo;
+                    </l:widget.link>
+                </li>
+            </f:if>
+        </ul>
+    </f:if>
+</f:section>

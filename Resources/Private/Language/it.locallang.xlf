@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" target-language="it" datatype="plaintext" original="messages" date="2012-10-17T17:55:17Z"
+          product-name="ext-logging">
+        <header/>
+        <body>
+            <trans-unit id="pagetitle.events">
+                <target>Report Eventi</target>
+            </trans-unit>
+            <trans-unit id="pagetitle.sessions">
+                <target>Report Sessioni</target>
+            </trans-unit>
+            <trans-unit id="pagetitle.showevent">
+                <target>Dettagli Evento</target>
+            </trans-unit>
+            <trans-unit id="pagetitle.showsession">
+                <target>Dettagli Sessione</target>
+            </trans-unit>
+            <trans-unit id="back">
+                <target>Torna ad elenco</target>
+            </trans-unit>
+            <trans-unit id="back.tolist">
+                <target>Torna ad elenco</target>
+            </trans-unit>
+            <trans-unit id="list.events">
+                <target>Elenco Eventi</target>
+            </trans-unit>
+            <trans-unit id="list.sessions">
+                <target>Elenco Sessioni utente</target>
+            </trans-unit>
+            <trans-unit id="results.found">
+                <target>Trovati</target>
+            </trans-unit>
+            <trans-unit id="year">
+                <target>Anno</target>
+            </trans-unit>
+            <trans-unit id="month">
+                <target>Mese</target>
+            </trans-unit>
+            <trans-unit id="search.all">
+                <target>Tutti</target>
+            </trans-unit>
+            <trans-unit id="user">
+                <target>Utente</target>
+            </trans-unit>
+            <trans-unit id="keyword">
+                <target>parola chiave</target>
+            </trans-unit>
+            <trans-unit id="activity">
+                <target>Attività</target>
+            </trans-unit>
+            <trans-unit id="btn.reset">
+                <target>Reset</target>
+            </trans-unit>
+            <trans-unit id="btn.search">
+                <target>Cerca</target>
+            </trans-unit>
+            <trans-unit id="date">
+                <target>Data</target>
+            </trans-unit>
+            <trans-unit id="site">
+                <target>Sito</target>
+            </trans-unit>
+            <trans-unit id="details">
+                <target>Dettagli</target>
+            </trans-unit>
+            <trans-unit id="btn.export.csv">
+                <target>Esporta tabella (CSV)</target>
+            </trans-unit>
+            <trans-unit id="btn.reload">
+                <target>Ricarica pagina</target>
+            </trans-unit>
+
+            <trans-unit id="action.view">
+                <target>Visualizza</target>
+            </trans-unit>
+            <trans-unit id="action.modify">
+                <target>Modifica</target>
+            </trans-unit>
+            <trans-unit id="action.search">
+                <target>Cerca</target>
+            </trans-unit>
+            <trans-unit id="action.download">
+                <target>Scarica</target>
+            </trans-unit>
+            <trans-unit id="action.export">
+                <target>Esporta</target>
+            </trans-unit>
+            <trans-unit id="action.login">
+                <target>Login</target>
+            </trans-unit>
+            <trans-unit id="action.logout">
+                <target>Logout</target>
+            </trans-unit>
+
+            <trans-unit id="tablename.page">
+                <target>Pagina</target>
+            </trans-unit>
+            <trans-unit id="tablename.dam">
+                <target>Documento</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

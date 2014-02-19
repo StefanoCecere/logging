@@ -1,0 +1,160 @@
+{namespace v=Tx_Vhs_ViewHelpers}
+{namespace l=Tx_Logging_ViewHelpers}
+
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://typo3.org/ns/fluid"
+     xmlns:v="http://fedext.net/schemas/vhs-master.xsd">
+
+    <f:layout name="Backend/Default"/>
+
+    <f:section name="Main">
+
+        <h4>
+            <f:translate key="pagetitle.events"/>
+        </h4>
+
+        <div class="row">
+            <div class='col-sm-6'>
+                <f:link.action action="listSessions" class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-user"></span>
+                    <f:translate key="list.sessions"/>
+                </f:link.action>
+            </div>
+            <div class='col-sm-6 text-right'>
+                <f:link.action arguments="{download : 'csv'}" addQueryString="TRUE"
+                               class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-download-alt"></span>
+                    <f:translate key="btn.export.csv"/>
+                </f:link.action>
+
+                <f:link.action class="btn btn-default btn-sm" addQueryString="TRUE">
+                    <span class="glyphicon glyphicon-refresh"></span>
+                    <f:translate key="btn.reload"/>
+                </f:link.action>
+            </div>
+        </div>
+        <hr/>
+
+        <f:form name="demand" object="{demand}">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class='col-sm-1'>
+                        <div class="form-group">
+                            <label>
+                                <f:translate key="results.found"/>
+                            </label>
+                            <span class="form-control input-sm">{f:count(subject:events)}</span>
+                        </div>
+                    </div>
+                    <div class='col-sm-1'>
+                        <div class="form-group">
+                            <label for="year-selector">
+                                <f:translate key="year"/>
+                            </label>
+                            <v:form.select id="year-selector" class="form-control input-sm" property="year">
+                                <f:for each="{demand.years}" as="year">
+                                    <v:form.select.option value="{year}">{year}</v:form.select.option>
+                                </f:for>
+                            </v:form.select>
+                        </div>
+                    </div>
+                    <div class='col-sm-1'>
+                        <div class="form-group">
+                            <label for="month-selector">
+                                <f:translate key="month"/>
+                            </label>
+                            <v:form.select id="month-selector" class="form-control input-sm" property="month">
+                                <f:for each="{demand.months}" as="month">
+                                    <v:form.select.option value="{month.uid}">{month.title}</v:form.select.option>
+                                </f:for>
+                            </v:form.select>
+                        </div>
+                    </div>
+                    <div class='col-sm-2'>
+                        <div class="form-group">
+                            <label for="qsearch">
+                                <f:translate key="user"/>
+                            </label>
+                            <f:form.textfield id="qsearch" property="user" class="form-control input-sm" placeholder="{f:translate(key:'keyword')}"/>
+                        </div>
+                    </div>
+                    <div class='col-sm-2'>
+                        <div class="form-group">
+                            <label for="azione-selector">
+                                <f:translate key="activity"/>
+                            </label>
+                            <v:form.select id="azione-selector" class="form-control input-sm" property="action">
+                                <v:form.select.option value="">Tutte</v:form.select.option>
+                                <v:form.select.option value="login">
+                                    <f:translate key="action.login"/>
+                                </v:form.select.option>
+                                <v:form.select.option value="view">
+                                    <f:translate key="action.view"/>
+                                </v:form.select.option>
+                                <v:form.select.option value="modify">
+                                    <f:translate key="action.modify"/>
+                                </v:form.select.option>
+                                <v:form.select.option value="search">
+                                    <f:translate key="action.search"/>
+                                </v:form.select.option>
+                                <v:form.select.option value="download">
+                                    <f:translate key="action.download"/>
+                                </v:form.select.option>
+                                <v:form.select.option value="export">
+                                    <f:translate key="action.export"/>
+                                </v:form.select.option>
+                            </v:form.select>
+                        </div>
+                    </div>
+                    <div class='col-sm-2'>
+                        <div class="form-group">
+                            <label for="btns">&nbsp;</label>
+
+                            <div id="btns">
+                                <f:link.action class="btn btn-default btn-sm" action="listEvents">
+                                    <f:translate key="btn.reset"/>
+                                </f:link.action>
+                                <f:form.button type="submit" class="btn btn-primary btn-sm">
+                                    <f:translate key="btn.search"/>
+                                </f:form.button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </f:form>
+
+        <l:widget.paginatebs objects="{events}" as="paginatedEvents"
+                             configuration="{itemsPerPage: 20, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 10, addQueryStringMethod: 'GET,POST'}">
+            <table id="eventiTable" class="table table-condensed table-hover">
+                <thead>
+                <tr>
+                    <th>
+                        <f:translate key="date"/>
+                    </th>
+                    <th>
+                        <f:translate key="site"/>
+                    </th>
+                    <th>
+                        <f:translate key="user"/>
+                    </th>
+                    <th>
+                        <f:translate key="activity"/>
+                    </th>
+                    <th>
+                        <f:translate key="details"/>
+                    </th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <f:for each="{paginatedEvents}" as="event">
+                    <f:render partial="List/Event" arguments="{event : event, isevent : 1}"/>
+                </f:for>
+                </tbody>
+            </table>
+        </l:widget.paginatebs>
+
+    </f:section>
+</div>

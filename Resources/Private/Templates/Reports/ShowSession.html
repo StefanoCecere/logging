@@ -1,0 +1,75 @@
+{namespace v=Tx_Vhs_ViewHelpers}
+{namespace l=Tx_Logging_ViewHelpers}
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://typo3.org/ns/fluid"
+     xmlns:v="http://fedext.net/schemas/vhs-master.xsd">
+
+    <f:layout name="Backend/Default"/>
+
+    <f:section name="Main">
+
+        <h4><f:translate key="pagetitle.showsession"/></h4>
+
+        <div class="row">
+            <div class='col-sm-6'>
+                <button class="btn btn-default btn-sm" onCLick="history.back()">
+                    <span class="glyphicon glyphicon-arrow-left"></span> <f:translate key="back.tolist"/>
+                </button>
+            </div>
+            <div class='col-sm-6 text-right'>
+                <f:link.action action="session" arguments="{session : session, download : 'csv'}"
+                               class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-download-alt"></span>
+                    <f:translate key="btn.export.csv"/>
+                </f:link.action>
+
+                <f:link.action action="showSession" arguments="{session : session}"
+                               class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-refresh"></span>
+                    <f:translate key="btn.reload"/>
+                </f:link.action>
+            </div>
+        </div>
+        <hr/>
+
+        <f:translate key="date"/>
+        :
+        <f:format.date format="j-m-Y H:i">{session.crdate}</f:format.date>
+        <br/>
+        <f:translate key="user"/>
+        : {session.feUser.firstName} {session.feUser.lastName}<br/>
+        IP: {session.ipAddress}<br/>
+
+        <l:widget.paginatebs objects="{events}" as="paginatedEvents"
+                             configuration="{itemsPerPage: 40, insertAbove: 0, insertBelow: 1, maximumNumberOfLinks: 10}">
+            <table id="eventiTable" class="table table-condensed table-hover">
+                <thead>
+                <tr>
+                    <th>
+                        <f:translate key="date"/>
+                    </th>
+                    <th>
+                        <f:translate key="site"/>
+                    </th>
+                    <th>
+                        <f:translate key="user"/>
+                    </th>
+                    <th>
+                        <f:translate key="activity"/>
+                    </th>
+                    <th>
+                        <f:translate key="details"/>
+                    </th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <f:for each="{paginatedEvents}" as="event">
+                    <f:render partial="List/Event" arguments="{event : event, isevent : 0}"/>
+                </f:for>
+                </tbody>
+            </table>
+        </l:widget.paginatebs>
+
+    </f:section>
+</div>

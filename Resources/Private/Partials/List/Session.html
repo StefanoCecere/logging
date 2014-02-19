@@ -1,0 +1,18 @@
+<tr>
+    <td>
+        <f:format.date format="j-m-Y H:i">{session.crdate}</f:format.date>
+    </td>
+    <td>{session.siteId.title}</td>
+    <td>
+        <f:if condition="{session.feUser.username}">
+            <span title="{session.feUser.name}">{session.feUser.username}</span>
+        </f:if>
+    </td>
+    <td>
+        <f:link.action action="showSession" arguments="{session : session}" title="Guarda tutta la sessione"
+                       class="btn btn-default btn-xs">
+            <span class="glyphicon glyphicon-eye-open"></span>
+        </f:link.action>
+    </td>
+
+</tr>

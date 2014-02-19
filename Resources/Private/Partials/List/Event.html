@@ -1,0 +1,58 @@
+<tr>
+    <td>
+        <f:format.date format="j-m-Y H:i">{event.crdate}</f:format.date>
+    </td>
+    <td>{event.siteId.title}</td>
+    <td>
+        <f:if condition="{event.feUser.username}">
+            <span title="{event.feUser.name}">{event.feUser.username}</span>
+        </f:if>
+    </td>
+    <td>
+        <f:translate key="action.{event.action}"/>
+    </td>
+    <td>
+        <f:if condition="{event.isView}">
+            <f:link.external uri="{event.httpReferer}" class="btn btn-link btn-xs" target="_blank"
+                             title="apri pagina {event.httpReferer}">
+                <f:format.crop maxCharacters="60">{event.httpRefererCropped}</f:format.crop>
+            </f:link.external>
+        </f:if>
+        <f:if condition="{event.isDownload}">
+            <f:link.external uri="{event.httpReferer}" class="btn btn-link btn-xs" target="_blank"
+                             title="scarica file {event.documentTitle}">
+                <span class="glyphicon glyphicon-download"></span>
+                <f:format.crop maxCharacters="60">{event.documentTitle}</f:format.crop>
+            </f:link.external>
+        </f:if>
+        <f:if condition="{event.isExport}">
+            <strong>{event.tablename}</strong>: {event.note}
+        </f:if>
+        <f:if condition="{event.isModify}">
+            <strong>{event.tablename}</strong>:
+            <f:format.crop maxCharacters="60">{event.note}</f:format.crop>
+        </f:if>
+        <f:if condition="{event.isSearch}">
+            <strong>{event.tablename}</strong>
+            [{event.note}]<br/>
+            <f:link.external uri="{event.httpReferer}" class="btn btn-link btn-xs" target="_blank"
+                             title="apri pagina {event.httpReferer}">
+                <f:format.crop maxCharacters="60">{event.httpRefererCropped}</f:format.crop>
+            </f:link.external>
+        </f:if>
+    </td>
+    <td>
+        <f:link.action action="showEvent" arguments="{event : event, demand : demand}" title="Guarda dettagli evento"
+                       class="btn btn-default btn-xs">
+            <span class="glyphicon glyphicon-eye-open"></span>
+        </f:link.action>
+        <f:if condition="{isevent}">
+            <f:if condition="{event.sessionId}">
+                <f:link.action action="showSession" arguments="{session : event.sessionId}" title="Guarda tutta la sessione"
+                               class="btn btn-default btn-xs">
+                    <span class="glyphicon glyphicon-list"></span>
+                </f:link.action>
+            </f:if>
+        </f:if>
+    </td>
+</tr>
